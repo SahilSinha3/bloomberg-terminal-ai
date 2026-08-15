@@ -6,7 +6,7 @@ import random
 from datetime import datetime
 
 from app.config import settings
-from app.routers import market, financials, filings, news, research
+from app.routers import market, financials, filings, news, research, vessels, flights, macro
 from app.services.market_service import MOCK_QUOTES
 
 tags_metadata = [
@@ -21,6 +21,18 @@ tags_metadata = [
     {
         "name": "SEC Filings & RAG Search",
         "description": "Automated indexing of SEC EDGAR 10-K, 10-Q, 8-K submissions and Hybrid RAG search (pgvector + BM25 keyword search).",
+    },
+    {
+        "name": "AIS Vessel & Tanker Tracking",
+        "description": "Live satellite tracking of crude oil supertankers (VLCCs), LNG carriers, and container ships across global chokepoints.",
+    },
+    {
+        "name": "FLIGHT Corporate Jet Tracking",
+        "description": "Real-time executive aircraft tracking data (N1NVDA, N1AAPL, N1MSFT) and M&A jet convergence signals.",
+    },
+    {
+        "name": "Macro Economic Indicators",
+        "description": "Federal Reserve FRED target interest rates, CPI Inflation, NFP Payrolls, and GDP indicators.",
     },
     {
         "name": "News & Anomaly Alerts",
@@ -39,6 +51,8 @@ app = FastAPI(
 
 Production Python FastAPI service delivering:
 - ⚡ **Real-time market quote streaming** over WebSockets & REST.
+- 🚢 **AIS Maritime Vessel & Crude Oil Supertanker Tracking**.
+- ✈️ **FLIGHT Executive Corporate Jet Tracking & M&A Convergence Signals**.
 - 📄 **SEC EDGAR Hybrid Vector Search (RAG)** over 10-K & 10-Q filing text chunks.
 - 🤖 **Autonomous Multi-Agent Orchestration** with deterministic state machine execution & hallucination defenses.
 - 🧮 **Deterministic Financial Analytics** for fundamental financial statements.
@@ -62,6 +76,9 @@ app.add_middleware(
 app.include_router(market.router)
 app.include_router(financials.router)
 app.include_router(filings.router)
+app.include_router(vessels.router)
+app.include_router(flights.router)
+app.include_router(macro.router)
 app.include_router(news.router)
 app.include_router(research.router)
 
@@ -84,12 +101,12 @@ def health_check():
         "version": settings.VERSION,
         "database": "PostgreSQL Ready",
         "vector_search": "pgvector Hybrid RAG Ready",
-        "event_bus": "Redis Streams Ready"
+        "vessel_tracker": "AIS Stream Operational",
+        "flight_tracker": "Executive Jet Stream Operational"
     }
 
 @app.websocket("/v1/ws/stream")
 async def websocket_stream_endpoint(websocket: WebSocket):
-    """Bi-directional WebSocket streaming channel for real-time market ticks and live AI research execution progress."""
     await websocket.accept()
     try:
         symbols = ["NVDA", "AAPL", "MSFT", "AMD", "TSLA", "BTC-USD", "SPY"]

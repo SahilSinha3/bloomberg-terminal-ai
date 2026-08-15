@@ -9,6 +9,8 @@ import FinancialsPanel from '../components/FinancialsPanel';
 import FilingsPanel from '../components/FilingsPanel';
 import AIResearchPanel from '../components/AIResearchPanel';
 import NewsPanel from '../components/NewsPanel';
+import VesselTrackerPanel from '../components/VesselTrackerPanel';
+import FlightTrackerPanel from '../components/FlightTrackerPanel';
 import CitationModal from '../components/CitationModal';
 import { useTerminalStore } from '../store/useTerminalStore';
 import { useTerminalKeyboardShortcuts } from '../hooks/useTerminalKeyboardShortcuts';
@@ -17,7 +19,7 @@ import { SecuritySymbol } from '../types/terminal';
 export default function Home() {
   const { activePanel, isStreaming, updateQuotePrice, quotes } = useTerminalStore();
 
-  // Enable global Vim/Bloomberg terminal keyboard sequence shortcuts (G C, G F, G R, G A, G N)
+  // Enable global Vim/Bloomberg terminal keyboard sequence shortcuts (G C, G F, G R, G A, G V, G J)
   useTerminalKeyboardShortcuts();
 
   // Real-time market tick simulator effect (updates prices every 2 seconds)
@@ -60,6 +62,8 @@ export default function Home() {
           {activePanel === 'FILINGS' && <FilingsPanel />}
           {activePanel === 'RESEARCH' && <AIResearchPanel />}
           {activePanel === 'NEWS' && <NewsPanel />}
+          {activePanel === 'VESSELS' && <VesselTrackerPanel />}
+          {activePanel === 'FLIGHTS' && <FlightTrackerPanel />}
         </div>
       </main>
 

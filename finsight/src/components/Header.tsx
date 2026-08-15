@@ -11,9 +11,9 @@ import {
   TrendingUp, 
   Layers, 
   FileText, 
-  Newspaper, 
-  Grid, 
-  Maximize2
+  Newspaper,
+  Anchor,
+  Plane
 } from 'lucide-react';
 
 export default function Header() {
@@ -70,8 +70,10 @@ export default function Header() {
           <span className="text-gray-300">BRENT CRUDE <strong className="text-[#00e676]">$78.40 (+0.82%)</strong></span>
         </div>
 
-        <div className="text-[10px] text-gray-500 font-semibold">
-          SYSTEM HEALTH: <span className="text-[#00e676]">100% OPERATIONAL</span>
+        <div className="text-[10px] text-gray-500 font-semibold flex items-center gap-2">
+          <span>AIS &amp; ADS-B RADAR:</span>
+          <span className="text-[#00e676]">ONLINE</span>
+          <span className="bg-[#ff9900]/20 text-[#ff9900] border border-[#ff9900]/40 text-[9px] px-1 py-0.2 rounded font-bold">PHASE 2 BETA</span>
         </div>
       </div>
 
@@ -151,7 +153,7 @@ export default function Header() {
           <div className="flex items-center gap-1 bg-[#13161c] p-1 rounded border border-[#222733]">
             <button
               onClick={() => setActivePanel('CHART')}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded transition-colors ${
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
                 activePanel === 'CHART' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -161,7 +163,7 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('FINANCIALS')}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded transition-colors ${
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
                 activePanel === 'FINANCIALS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -171,7 +173,7 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('FILINGS')}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded transition-colors ${
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
                 activePanel === 'FILINGS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -179,24 +181,37 @@ export default function Header() {
               <span>SEC RAG</span>
             </button>
 
+            {/* Phase 2 Beta Units */}
+            <button
+              onClick={() => setActivePanel('VESSELS')}
+              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${
+                activePanel === 'VESSELS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              <Anchor size={13} />
+              <span>Ships</span>
+              <span className="bg-[#00e5ff]/20 text-[#00e5ff] border border-[#00e5ff]/40 text-[9px] px-1 py-0.2 rounded font-bold">BETA</span>
+            </button>
+
+            <button
+              onClick={() => setActivePanel('FLIGHTS')}
+              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${
+                activePanel === 'FLIGHTS' ? 'bg-[#1f2430] text-[#ff9900] font-bold border border-[#ff9900]/30' : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              <Plane size={13} />
+              <span>Jets</span>
+              <span className="bg-[#ff9900]/20 text-[#ff9900] border border-[#ff9900]/40 text-[9px] px-1 py-0.2 rounded font-bold">BETA</span>
+            </button>
+
             <button
               onClick={() => setActivePanel('RESEARCH')}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded transition-colors ${
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
                 activePanel === 'RESEARCH' ? 'bg-[#ff9900]/20 text-[#ff9900] font-bold border border-[#ff9900]/50' : 'text-gray-400 hover:text-white'
               }`}
             >
               <Sparkles size={13} className="text-[#ff9900]" />
               <span>AI Agents</span>
-            </button>
-
-            <button
-              onClick={() => setActivePanel('NEWS')}
-              className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded transition-colors ${
-                activePanel === 'NEWS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
-              }`}
-            >
-              <Newspaper size={13} />
-              <span>News</span>
             </button>
           </div>
 

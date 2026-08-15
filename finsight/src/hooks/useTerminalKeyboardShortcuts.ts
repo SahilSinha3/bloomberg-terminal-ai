@@ -10,7 +10,6 @@ export function useTerminalKeyboardShortcuts() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger shortcuts if user is typing inside an input or textarea
       const target = e.target as HTMLElement;
       if (
         target.tagName === 'INPUT' ||
@@ -20,14 +19,12 @@ export function useTerminalKeyboardShortcuts() {
         return;
       }
 
-      // Handle ⌘K or Ctrl+K for Command Palette
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setCommandPaletteOpen(!commandPaletteOpen);
         return;
       }
 
-      // Handle Vim/Bloomberg-style sequence key presses (e.g. G C, G F, G R, G A)
       const key = e.key.toLowerCase();
 
       if (timerRef.current) {
@@ -36,7 +33,6 @@ export function useTerminalKeyboardShortcuts() {
 
       sequenceRef.current += key;
 
-      // Handle two-key combination starting with 'g'
       if (sequenceRef.current.startsWith('g')) {
         if (sequenceRef.current === 'gc') {
           e.preventDefault();
@@ -68,11 +64,22 @@ export function useTerminalKeyboardShortcuts() {
           sequenceRef.current = '';
           return;
         }
+        if (sequenceRef.current === 'gv') {
+          e.preventDefault();
+          setActivePanel('VESSELS');
+          sequenceRef.current = '';
+          return;
+        }
+        if (sequenceRef.current === 'gj') {
+          e.preventDefault();
+          setActivePanel('FLIGHTS');
+          sequenceRef.current = '';
+          return;
+        }
       } else {
         sequenceRef.current = '';
       }
 
-      // Clear sequence after 1 second
       timerRef.current = setTimeout(() => {
         sequenceRef.current = '';
       }, 1000);

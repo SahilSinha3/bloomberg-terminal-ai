@@ -28,8 +28,8 @@ export interface OHLCVBar {
 }
 
 export interface FinancialMetric {
-  period: string; // e.g. "Q2 2026", "2025"
-  revenue: number; // in millions
+  period: string;
+  revenue: number;
   grossProfit: number;
   operatingIncome: number;
   netIncome: number;
@@ -128,7 +128,7 @@ export interface ResearchClaim {
   id: string;
   text: string;
   claimType: 'FACT' | 'CALCULATION' | 'INFERENCE';
-  confidence: number; // 0 to 1
+  confidence: number;
   citationIds: string[];
 }
 
@@ -144,4 +144,4 @@ export interface ResearchReport {
   status: 'QUEUED' | 'PLANNING' | 'RESEARCHING' | 'VERIFYING' | 'SYNTHESIZING' | 'COMPLETED' | 'FAILED';
 }
 
-export type TerminalPanelId = 'WATCHLIST' | 'CHART' | 'FINANCIALS' | 'FILINGS' | 'RESEARCH' | 'NEWS';
+export type TerminalPanelId = 'WATCHLIST' | 'CHART' | 'FINANCIALS' | 'FILINGS' | 'RESEARCH' | 'NEWS' | 'VESSELS' | 'FLIGHTS';
