@@ -11,7 +11,7 @@ router = APIRouter(prefix="/v1", tags=["Autonomous Multi-Agent Engine"])
     response_model=ResearchReportResponse
 )
 async def start_research_task(
-    req: ResearchRequest = Body(..., example={"query": "Why did NVDA drop today?", "symbol": "NVDA"})
+    req: ResearchRequest = Body(...)
 ):
     report = await agent_orchestrator.run_research_pipeline(req.query, req.symbol)
     return report

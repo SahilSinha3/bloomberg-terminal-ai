@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query
-from typing import List
+from typing import List, Optional
 from app.services.news_anomaly_service import news_anomaly_service
 from app.schemas import NewsArticleResponse, MarketAnomalyResponse
 
@@ -12,7 +12,7 @@ router = APIRouter(prefix="/v1", tags=["News & Anomaly Alerts"])
     response_model=List[NewsArticleResponse]
 )
 def get_news(
-    symbol: str = Query(None, description="Optional symbol filter", example="NVDA")
+    symbol: Optional[str] = Query(None, description="Optional symbol filter")
 ):
     return news_anomaly_service.get_news(symbol)
 
@@ -23,6 +23,6 @@ def get_news(
     response_model=List[MarketAnomalyResponse]
 )
 def get_anomalies(
-    symbol: str = Query(None, description="Optional symbol filter", example="NVDA")
+    symbol: Optional[str] = Query(None, description="Optional symbol filter")
 ):
     return news_anomaly_service.get_anomalies(symbol)

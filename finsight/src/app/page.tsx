@@ -11,10 +11,14 @@ import AIResearchPanel from '../components/AIResearchPanel';
 import NewsPanel from '../components/NewsPanel';
 import CitationModal from '../components/CitationModal';
 import { useTerminalStore } from '../store/useTerminalStore';
+import { useTerminalKeyboardShortcuts } from '../hooks/useTerminalKeyboardShortcuts';
 import { SecuritySymbol } from '../types/terminal';
 
 export default function Home() {
   const { activePanel, isStreaming, updateQuotePrice, quotes } = useTerminalStore();
+
+  // Enable global Vim/Bloomberg terminal keyboard sequence shortcuts (G C, G F, G R, G A, G N)
+  useTerminalKeyboardShortcuts();
 
   // Real-time market tick simulator effect (updates prices every 2 seconds)
   useEffect(() => {
@@ -23,12 +27,10 @@ export default function Home() {
     const symbols: SecuritySymbol[] = ['NVDA', 'AAPL', 'MSFT', 'AMD', 'TSLA', 'BTC-USD', 'SPY'];
 
     const interval = setInterval(() => {
-      // Pick random symbol to tick
       const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
       const currentQuote = quotes[randomSymbol];
       if (!currentQuote) return;
 
-      // Realistic tick step (+-0.15%)
       const changeFactor = 1 + (Math.random() - 0.49) * 0.003;
       const newPrice = currentQuote.price * changeFactor;
 
