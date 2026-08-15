@@ -23,6 +23,44 @@
 
 ---
 
+## 🎯 Phase 2 Vision & Planned Bloomberg Terminal Features
+
+### What We Want to Achieve in Phase 2
+Phase 2 aims to transform **Bloomberg Terminal AI** into a comprehensive, multi-asset institutional terminal replicating iconic Bloomberg Terminal capabilities for equities, macroeconomics, portfolio risk management, and global supply chain tracking.
+
+### Planned Phase 2 Modules & Functions
+
+1. **`EQS` (Equity Screener)**:
+   - Multi-factor stock filter (Market Cap > $10B, P/E < 50, Revenue Growth > 20%, Volume Velocity > 2x).
+   - Instant filtering across global stock exchanges.
+   - Keyboard Shortcut: **`G S`** (*Go Screener*).
+
+2. **`PORT` (Portfolio & Risk Analytics)**:
+   - Multi-asset holdings management (Quantity, Average Cost, Unrealized P&L, Weight %).
+   - Deterministic risk metrics: Portfolio Beta, Sharpe Ratio, Volatility, and Value-at-Risk (VaR 95%).
+   - Keyboard Shortcut: **`G P`** (*Go Portfolio*).
+
+3. **`ECO` (Macro Economic Calendar & Fed Watch)**:
+   - Federal Reserve FRED API integration for target Fed Funds interest rates, CPI Inflation, Non-Farm Payrolls (NFP), and GDP indicators.
+   - Rate hike / rate cut probability tracker.
+   - Keyboard Shortcut: **`G E`** (*Go Economics*).
+
+4. **`DES` (Company Description & Insider Intelligence)**:
+   - Executive C-suite profiles (CEO, CFO, Board members).
+   - SEC Form 4 insider trading transactions (Insider Buys vs Sells) and institutional ownership breakdowns.
+
+5. **`HEAT` (S&P 500 Market Heatmap)**:
+   - Visual treemap grid of S&P 500 sectors (Technology, Healthcare, Financials, Energy, Consumer Discretionary) color-coded by intraday % performance.
+
+6. **`IB` (Instant Bloomberg Chat Simulation)**:
+   - Terminal-style real-time trader messaging feed with live symbol auto-linking (`$NVDA`, `$AAPL`).
+
+7. **`AIS` & `FLIGHT` Expansion**:
+   - Real-time port congestion indexes (Rotterdam, Los Angeles, Shanghai).
+   - Enhanced live flight trajectory curves on vector world map projections.
+
+---
+
 ## 📐 Architecture Diagram
 
 ```
@@ -75,6 +113,7 @@
 ├── SERVICES_REQUIREMENTS_AND_HLD.md     # Detailed Service Requirements & High-Level Architecture
 ├── implementation_plan.md               # Phased MVP Implementation Roadmap
 ├── .env                                 # Local environment variables
+├── .env.example                         # Environment configuration template
 ├── backend/                             # Python FastAPI Backend
 │   ├── app/
 │   │   ├── main.py                      # FastAPI server with CORS, REST & WebSockets
