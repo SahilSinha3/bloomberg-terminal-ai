@@ -122,11 +122,11 @@ Example:
 │ FINsight     Search / Command Palette             Market ●   │
 ├──────────────┬────────────────────────────┬───────────────────┤
 │ WATCHLIST    │                            │ AI RESEARCH       │
-│              │           NVDA             │                   │
-│ NVDA  172.31 │       Price Chart           │ Why did NVDA     │
-│ AAPL  214.20 │                            │ move today?       │
+│              │           NVIDIA             │                   │
+│ NVIDIA  172.31 │       Price Chart           │ Why did NVIDIA     │
+│ APPLE  214.20 │                            │ move today?       │
 │ AMD   181.42 │                            │                   │
-│ MSFT  521.11 │                            │ Investigating...  │
+│ MICROSOFT  521.11 │                            │ Investigating...  │
 │ META  702.12 │                            │                   │
 │              │                            │ ▸ Market          │
 │              │                            │ ▸ News            │
@@ -165,14 +165,14 @@ opens a universal command system.
 Examples:
 
 ```text
-NVDA
-NVDA chart
-NVDA financials
-NVDA news
-NVDA filings
-compare NVDA AMD
-research NVDA
-set alert NVDA < 160
+NVIDIA
+NVIDIA chart
+NVIDIA financials
+NVIDIA news
+NVIDIA filings
+compare NVIDIA AMD
+research NVIDIA
+set alert NVIDIA < 160
 ```
 
 The command system becomes a unified interface over the entire application.
@@ -292,7 +292,7 @@ Example:
   "eventType": "market.quote.updated",
   "version": 1,
   "timestamp": "2026-08-15T09:30:00Z",
-  "symbol": "NVDA",
+  "symbol": "NVIDIA",
   "sequence": 184921,
   "data": {
     "price": 172.31,
@@ -327,7 +327,7 @@ Subscribe:
 {
   "type": "subscribe",
   "channel": "quotes",
-  "symbols": ["NVDA", "AMD", "AAPL"]
+  "symbols": ["NVIDIA", "AMD", "APPLE"]
 }
 ```
 
@@ -336,7 +336,7 @@ Server:
 ```json
 {
   "type": "quote",
-  "symbol": "NVDA",
+  "symbol": "NVIDIA",
   "sequence": 184921,
   "timestamp": "2026-08-15T09:30:00.120Z",
   "data": {
@@ -354,7 +354,7 @@ Unsubscribe:
 {
   "type": "unsubscribe",
   "channel": "quotes",
-  "symbols": ["NVDA"]
+  "symbols": ["NVIDIA"]
 }
 ```
 
@@ -498,7 +498,7 @@ Every company gets a unified profile.
 Example:
 
 ```text
-NVDA
+NVIDIA
 
 Overview
 Price
@@ -637,7 +637,7 @@ Example:
 ```json
 {
   "documentId": "doc_123",
-  "companyId": "cmp_nvda",
+  "companyId": "cmp_NVIDIA",
   "type": "10-Q",
   "filingDate": "2026-07-30",
   "period": "2026-Q2",
@@ -692,7 +692,7 @@ Example:
 NVIDIA's gross margin declined during the quarter.
 
 [Source 1]
-NVDA Q2 10-Q
+NVIDIA Q2 10-Q
 Page 14
 
 [Source 2]
@@ -720,7 +720,7 @@ This is the main AI interface.
 
 User:
 
-> “Why did NVDA fall today?”
+> “Why did NVIDIA fall today?”
 
 The system should NOT immediately answer.
 
@@ -826,7 +826,7 @@ Example:
 
 ```text
 User:
-"Why did NVDA drop?"
+"Why did NVIDIA drop?"
 
         │
         ▼
@@ -903,7 +903,7 @@ Response:
 
 ```json
 {
-  "symbol": "NVDA",
+  "symbol": "NVIDIA",
   "interval": "1d",
   "data": [
     {
@@ -975,7 +975,7 @@ Example result:
 SEMICONDUCTOR INVESTIGATION
 
 Detected:
-NVDA + abnormal volume
+NVIDIA + abnormal volume
 AMD + elevated volatility
 SOXX + sector-wide movement
 
@@ -1040,12 +1040,12 @@ Users can create alerts.
 Examples:
 
 ```text
-NVDA < 150
-NVDA volume > 2x average
-AAPL earnings released
-TSLA gross margin < X
+NVIDIA < 150
+NVIDIA volume > 2x average
+APPLE earnings released
+TESLA gross margin < X
 BTC moves > 5%
-NVDA unusual activity
+NVIDIA unusual activity
 ```
 
 Architecture:
@@ -1426,8 +1426,8 @@ Request:
 
 ```json
 {
-  "query": "Why did NVDA decline today?",
-  "symbols": ["NVDA"],
+  "query": "Why did NVIDIA decline today?",
+  "symbols": ["NVIDIA"],
   "mode": "deep"
 }
 ```
@@ -1567,7 +1567,7 @@ Example:
 
 ```text
 FACT
-NVDA revenue increased X%.
+NVIDIA revenue increased X%.
 
 SOURCE
 Q2 10-Q
@@ -1864,7 +1864,7 @@ This gives you explainability.
 ```json
 {
   "researchId": "res_123",
-  "title": "Why NVDA moved today",
+  "title": "Why NVIDIA moved today",
   "summary": "...",
   "claims": [
     {
@@ -2688,7 +2688,7 @@ The portfolio website should immediately show this:
 Open:
 
 ```text
-NVDA
+NVIDIA
 ```
 
 Show:
@@ -2705,7 +2705,7 @@ Peers
 
 User:
 
-> Why did NVDA move today?
+> Why did NVIDIA move today?
 
 Show live agent execution:
 

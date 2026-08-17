@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 
 class SecurityQuoteResponse(BaseModel):
-    symbol: str = Field(..., description="Ticker security symbol (e.g., NVDA, AAPL, BTC-USD)", example="NVDA")
+    symbol: str = Field(..., description="Ticker security symbol (e.g., NVIDIA, APPLE, BTC-USD)", example="NVIDIA")
     name: str = Field(..., description="Full legal name of company or security", example="NVIDIA Corporation")
     price: float = Field(..., description="Current real-time market price in USD", example=172.31)
     change: float = Field(..., description="Absolute price change for the session", example=-4.21)
@@ -41,15 +41,15 @@ class FinancialStatementResponse(BaseModel):
     evToEbitda: float = Field(..., description="Enterprise Value to EBITDA ratio", example=42.1)
 
 class SECChunkResponse(BaseModel):
-    chunkId: str = Field(..., description="Unique vector chunk identifier", example="chunk_nvda_1")
+    chunkId: str = Field(..., description="Unique vector chunk identifier", example="chunk_NVIDIA_1")
     section: str = Field(..., description="Filing section heading", example="Item 2. MD&A")
     page: int = Field(..., description="Document page number", example=14)
     text: str = Field(..., description="Extracted paragraph text chunk from filing", example="Data Center revenue for Q2 was $26.3 billion...")
     highlightKeywords: Optional[List[str]] = Field(None, description="Extracted vector keywords", example=["Data Center", "Blackwell GPU"])
 
 class SECFilingResponse(BaseModel):
-    id: str = Field(..., description="Filing document identifier", example="doc_nvda_q2_2026")
-    symbol: str = Field(..., description="Ticker security symbol", example="NVDA")
+    id: str = Field(..., description="Filing document identifier", example="doc_NVIDIA_q2_2026")
+    symbol: str = Field(..., description="Ticker security symbol", example="NVIDIA")
     type: str = Field(..., description="SEC filing type (10-K, 10-Q, 8-K)", example="10-Q")
     filingDate: str = Field(..., description="Official filing date", example="2026-08-01")
     period: str = Field(..., description="Reported fiscal period", example="Q2 FY2026")
@@ -64,14 +64,14 @@ class NewsArticleResponse(BaseModel):
     source: str = Field(..., description="News publisher source", example="Bloomberg Intelligence")
     publishedAt: str = Field(..., description="Relative or ISO timestamp", example="12 mins ago")
     summary: str = Field(..., description="Article summary text", example="Analyst reports highlight tight substrate packaging capacity...")
-    url: str = Field(..., description="Article URL link", example="https://bloomberg.com/news/nvda-supply-chain-check")
+    url: str = Field(..., description="Article URL link", example="https://bloomberg.com/news/NVIDIA-supply-chain-check")
     sentiment: str = Field(..., description="Automated sentiment tag (BULLISH, BEARISH, NEUTRAL)", example="BEARISH")
-    relatedSymbols: List[str] = Field(..., description="List of related ticker symbols", example=["NVDA", "AMD"])
+    relatedSymbols: List[str] = Field(..., description="List of related ticker symbols", example=["NVIDIA", "AMD"])
 
 class MarketAnomalyResponse(BaseModel):
     id: str = Field(..., description="Anomaly event ID", example="anom_1")
     timestamp: str = Field(..., description="Detection timestamp", example="14:22:10 UTC")
-    symbol: str = Field(..., description="Target ticker symbol", example="NVDA")
+    symbol: str = Field(..., description="Target ticker symbol", example="NVIDIA")
     type: str = Field(..., description="Anomaly classification type", example="VOLUME_SPIKE")
     severity: str = Field(..., description="Alert severity level (HIGH, MEDIUM, LOW)", example="HIGH")
     description: str = Field(..., description="Human-readable anomaly description", example="Abnormal block trade volume detected")
@@ -88,7 +88,7 @@ class CitationResponse(BaseModel):
 
 class ClaimResponse(BaseModel):
     id: str = Field(..., description="Claim ID", example="c1")
-    text: str = Field(..., description="Grounding claim assertion text", example="NVDA Q2 Form 10-Q highlights Data Center revenue growth (+154% YoY)...")
+    text: str = Field(..., description="Grounding claim assertion text", example="NVIDIA Q2 Form 10-Q highlights Data Center revenue growth (+154% YoY)...")
     claimType: str = Field(..., description="Claim classification (FACT, CALCULATION, INFERENCE)", example="FACT")
     confidence: float = Field(..., description="Grounding score confidence (0.0 to 1.0)", example=0.98)
     citationIds: List[str] = Field(..., description="Array of matching citation IDs", example=["cit_1"])
@@ -102,13 +102,13 @@ class AgentStepResponse(BaseModel):
     toolCall: Optional[Dict[str, Any]] = Field(None, description="Tool execution parameters if applicable")
 
 class ResearchRequest(BaseModel):
-    query: str = Field(..., description="Natural language prompt query", example="Why did NVDA drop today?")
-    symbol: str = Field(..., description="Target ticker security symbol", example="NVDA")
+    query: str = Field(..., description="Natural language prompt query", example="Why did NVIDIA drop today?")
+    symbol: str = Field(..., description="Target ticker security symbol", example="NVIDIA")
 
 class ResearchReportResponse(BaseModel):
     id: str = Field(..., description="Research report unique ID", example="res_1723800000")
-    query: str = Field(..., description="Original prompt query", example="Why did NVDA drop today?")
-    symbol: str = Field(..., description="Target security symbol", example="NVDA")
+    query: str = Field(..., description="Original prompt query", example="Why did NVIDIA drop today?")
+    symbol: str = Field(..., description="Target security symbol", example="NVIDIA")
     createdAt: str = Field(..., description="ISO 8601 creation timestamp", example="2026-08-16T03:20:00Z")
     status: str = Field(..., description="State Machine status (QUEUED, PLANNING, RESEARCHING, VERIFYING, SYNTHESIZING, COMPLETED)", example="COMPLETED")
     summary: str = Field(..., description="Executive intelligence summary", example="Automated financial investigation completed...")

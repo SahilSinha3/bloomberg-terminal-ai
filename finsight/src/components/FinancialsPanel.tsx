@@ -9,7 +9,7 @@ export default function FinancialsPanel() {
   const { activeSymbol } = useTerminalStore();
   const [statementType, setStatementType] = useState<'INCOME' | 'BALANCE' | 'CASHFLOW' | 'RATIOS'>('INCOME');
 
-  const statements = FINANCIAL_STATEMENTS[activeSymbol] || FINANCIAL_STATEMENTS['NVDA'];
+  const statements = FINANCIAL_STATEMENTS[activeSymbol] || FINANCIAL_STATEMENTS['NVIDIA'];
 
   return (
     <div className="bg-[#111318] border border-[#262a33] rounded-lg p-4 font-mono flex flex-col h-full overflow-hidden">

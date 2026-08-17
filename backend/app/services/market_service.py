@@ -3,18 +3,18 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any
 
 MOCK_QUOTES: Dict[str, Dict[str, Any]] = {
-    "NVDA": {
-        "symbol": "NVDA", "name": "NVIDIA Corporation", "price": 172.31, "change": -4.21, "change_percent": -2.38,
+    "NVIDIA": {
+        "symbol": "NVIDIA", "name": "NVIDIA Corporation", "price": 172.31, "change": -4.21, "change_percent": -2.38,
         "high_24h": 177.50, "low_24h": 169.80, "volume": 58492010, "market_cap": "$4.21T", "pe_ratio": 52.4,
         "sector": "Semiconductors", "last_updated": datetime.utcnow().isoformat()
     },
-    "AAPL": {
-        "symbol": "AAPL", "name": "Apple Inc.", "price": 214.20, "change": 1.85, "change_percent": 0.87,
+    "APPLE": {
+        "symbol": "APPLE", "name": "Apple Inc.", "price": 214.20, "change": 1.85, "change_percent": 0.87,
         "high_24h": 215.40, "low_24h": 212.10, "volume": 38920100, "market_cap": "$3.28T", "pe_ratio": 33.1,
         "sector": "Consumer Electronics", "last_updated": datetime.utcnow().isoformat()
     },
-    "MSFT": {
-        "symbol": "MSFT", "name": "Microsoft Corporation", "price": 521.11, "change": 6.42, "change_percent": 1.25,
+    "MICROSOFT": {
+        "symbol": "MICROSOFT", "name": "Microsoft Corporation", "price": 521.11, "change": 6.42, "change_percent": 1.25,
         "high_24h": 523.00, "low_24h": 516.80, "volume": 24109200, "market_cap": "$3.87T", "pe_ratio": 37.8,
         "sector": "Software & Cloud", "last_updated": datetime.utcnow().isoformat()
     },
@@ -23,8 +23,8 @@ MOCK_QUOTES: Dict[str, Dict[str, Any]] = {
         "high_24h": 186.20, "low_24h": 179.90, "volume": 42109800, "market_cap": "$293.4B", "pe_ratio": 48.2,
         "sector": "Semiconductors", "last_updated": datetime.utcnow().isoformat()
     },
-    "TSLA": {
-        "symbol": "TSLA", "name": "Tesla, Inc.", "price": 248.90, "change": -7.10, "change_percent": -2.77,
+    "TESLA": {
+        "symbol": "TESLA", "name": "Tesla, Inc.", "price": 248.90, "change": -7.10, "change_percent": -2.77,
         "high_24h": 257.20, "low_24h": 246.50, "volume": 61209300, "market_cap": "$792.1B", "pe_ratio": 64.5,
         "sector": "Automotive & Clean Energy", "last_updated": datetime.utcnow().isoformat()
     },

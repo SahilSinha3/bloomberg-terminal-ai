@@ -22,7 +22,7 @@ export interface CorporateFlight {
 
 const MOCK_FLIGHTS: CorporateFlight[] = [
   {
-    tailNumber: "N1NVDA",
+    tailNumber: "N1NVIDIA",
     aircraft: "Gulfstream G650ER",
     operator: "NVIDIA Corporate Aviation",
     origin: "SJC (San Jose Intl)",
@@ -43,7 +43,7 @@ const MOCK_FLIGHTS: CorporateFlight[] = [
     ]
   },
   {
-    tailNumber: "N1AAPL",
+    tailNumber: "N1APPLE",
     aircraft: "Bombardier Global 7500",
     operator: "Apple Inc. Corporate Flight Ops",
     origin: "SJC (San Jose Intl)",
@@ -63,7 +63,7 @@ const MOCK_FLIGHTS: CorporateFlight[] = [
     ]
   },
   {
-    tailNumber: "N1MSFT",
+    tailNumber: "N1MICROSOFT",
     aircraft: "Gulfstream G700",
     operator: "Microsoft Flight Department",
     origin: "BFI (Seattle Boeing Field)",
@@ -119,7 +119,7 @@ export default function FlightTrackerPanel() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 overflow-hidden">
         {/* Left Column: Interactive World Air Radar Canvas with SVG World Map */}
         <div className="lg:col-span-2 bg-[#0c0a07] border border-[#ff9900]/30 rounded-lg p-3 relative overflow-hidden flex flex-col justify-between shadow-inner">
-          
+
           {/* Radar Header Overlay */}
           <div className="flex items-center justify-between z-10 text-[11px] bg-[#14100b]/90 border border-[#222733] px-3 py-1.5 rounded">
             <div className="flex items-center gap-2 text-gray-300 font-bold">
@@ -159,13 +159,13 @@ export default function FlightTrackerPanel() {
 
           {/* Zoomable World Air Radar Canvas with Vector Continents */}
           <div className="relative flex-1 w-full my-2 border border-[#222733] rounded bg-[#080705] overflow-hidden">
-            <div 
+            <div
               className="w-full h-full relative transition-transform duration-300 ease-out origin-center flex items-center justify-center"
               style={{ transform: `scale(${zoomLevel})` }}
             >
               {/* World Continents Vector SVG Outline Background */}
-              <svg 
-                viewBox="0 0 1000 500" 
+              <svg
+                viewBox="0 0 1000 500"
                 className="w-full h-full absolute inset-0 opacity-40"
                 style={{ filter: 'drop-shadow(0 0 6px rgba(255,153,0,0.15))' }}
               >
@@ -209,9 +209,8 @@ export default function FlightTrackerPanel() {
                     </div>
 
                     {/* Tooltip Hover Label */}
-                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-6 whitespace-nowrap bg-[#14100b] border px-2 py-1 rounded text-[9px] font-bold shadow-lg transition-all ${
-                      isSelected ? 'border-[#ff9900] text-white opacity-100' : 'border-[#262a33] text-gray-400 opacity-80 group-hover:opacity-100'
-                    }`}>
+                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-6 whitespace-nowrap bg-[#14100b] border px-2 py-1 rounded text-[9px] font-bold shadow-lg transition-all ${isSelected ? 'border-[#ff9900] text-white opacity-100' : 'border-[#262a33] text-gray-400 opacity-80 group-hover:opacity-100'
+                      }`}>
                       <div>{f.tailNumber} ({f.aircraft})</div>
                       <div className="text-[8px] text-[#ff9900]">{f.origin} ➔ {f.destination}</div>
                     </div>

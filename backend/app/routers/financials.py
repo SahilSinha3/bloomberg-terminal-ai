@@ -12,6 +12,6 @@ router = APIRouter(prefix="/v1", tags=["Financial Analytics"])
     response_model=List[FinancialStatementResponse]
 )
 def get_financials(
-    symbol: str = Path(..., description="Ticker security symbol (e.g. NVDA)")
+    symbol: str = Path(..., description="Ticker security symbol (e.g. NVIDIA)")
 ):
     return analytics_service.get_financial_statements(symbol)

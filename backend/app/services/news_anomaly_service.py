@@ -8,9 +8,9 @@ MOCK_NEWS: List[Dict[str, Any]] = [
         "source": "Bloomberg Intelligence",
         "publishedAt": "12 mins ago",
         "summary": "Analyst reports highlight tight substrate packaging capacity for AI accelerators, though demand remains at record highs across cloud providers.",
-        "url": "https://bloomberg.com/news/nvda-supply-chain-check",
+        "url": "https://bloomberg.com/news/NVIDIA-supply-chain-check",
         "sentiment": "BEARISH",
-        "relatedSymbols": ["NVDA", "AMD", "TSLA"]
+        "relatedSymbols": ["NVIDIA", "AMD", "TESLA"]
     },
     {
         "id": "news_2",
@@ -20,7 +20,7 @@ MOCK_NEWS: List[Dict[str, Any]] = [
         "summary": "Microsoft announces $12B capital expenditure expansion for enterprise AI models, reinforcing infrastructure commitment.",
         "url": "https://ft.com/tech/microsoft-azure-ai-capex",
         "sentiment": "BULLISH",
-        "relatedSymbols": ["MSFT", "NVDA"]
+        "relatedSymbols": ["MICROSOFT", "NVIDIA"]
     }
 ]
 
@@ -28,7 +28,7 @@ MOCK_ANOMALIES: List[Dict[str, Any]] = [
     {
         "id": "anom_1",
         "timestamp": datetime.utcnow().strftime("%H:%M:%S UTC"),
-        "symbol": "NVDA",
+        "symbol": "NVIDIA",
         "type": "VOLUME_SPIKE",
         "severity": "HIGH",
         "description": "Abnormal block trade volume detected (2.8x 30-day average ticker velocity)",

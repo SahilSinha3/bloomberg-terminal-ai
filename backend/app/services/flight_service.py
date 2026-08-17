@@ -3,7 +3,7 @@ from typing import List, Dict, Any
 
 MOCK_FLIGHTS: List[Dict[str, Any]] = [
     {
-        "tailNumber": "N1NVDA",
+        "tailNumber": "N1NVIDIA",
         "aircraft": "Gulfstream G650ER",
         "operator": "NVIDIA Corporate Aviation",
         "origin": "SJC (San Jose Intl)",
@@ -24,7 +24,7 @@ MOCK_FLIGHTS: List[Dict[str, Any]] = [
         ]
     },
     {
-        "tailNumber": "N1AAPL",
+        "tailNumber": "N1APPLE",
         "aircraft": "Bombardier Global 7500",
         "operator": "Apple Inc. Corporate Flight Ops",
         "origin": "SJC (San Jose Intl)",
@@ -44,7 +44,7 @@ MOCK_FLIGHTS: List[Dict[str, Any]] = [
         ]
     },
     {
-        "tailNumber": "N1MSFT",
+        "tailNumber": "N1MICROSOFT",
         "aircraft": "Gulfstream G700",
         "operator": "Microsoft Flight Department",
         "origin": "BFI (Seattle Boeing Field)",

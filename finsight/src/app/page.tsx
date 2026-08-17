@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     if (!isStreaming) return;
 
-    const symbols: SecuritySymbol[] = ['NVDA', 'AAPL', 'MSFT', 'AMD', 'TSLA', 'BTC-USD', 'SPY'];
+    const symbols: SecuritySymbol[] = ['NVIDIA', 'APPLE', 'MICROSOFT', 'AMD', 'TESLA', 'BTC-USD', 'SPY'];
 
     const interval = setInterval(() => {
       const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
@@ -49,7 +49,7 @@ export default function Home() {
 
       {/* Main Terminal Workspace Area */}
       <main className="flex-1 p-3 grid grid-cols-1 lg:grid-cols-4 gap-3 overflow-hidden">
-        
+
         {/* Left Column: Fixed Watchlist Panel */}
         <div className="lg:col-span-1 h-[calc(100vh-4.5rem)] min-h-[500px]">
           <WatchlistPanel />

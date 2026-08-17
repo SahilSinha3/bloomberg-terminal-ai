@@ -17,11 +17,11 @@ def get_quotes():
 @router.get(
     "/quotes/{symbol}",
     summary="Fetch Single Security Quote",
-    description="Returns normalized market quote details for a specific ticker symbol (e.g. NVDA, AAPL, BTC-USD).",
+    description="Returns normalized market quote details for a specific ticker symbol (e.g. NVIDIA, APPLE, BTC-USD).",
     response_model=SecurityQuoteResponse
 )
 def get_quote(
-    symbol: str = Path(..., description="Ticker security symbol (e.g., NVDA, AAPL, BTC-USD)")
+    symbol: str = Path(..., description="Ticker security symbol (e.g., NVIDIA, APPLE, BTC-USD)")
 ):
     return market_service.get_quote(symbol)
 

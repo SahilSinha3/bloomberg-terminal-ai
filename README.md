@@ -8,7 +8,7 @@
 
 - ⚡ **Real-Time Market Streaming (<200ms tick fanout)**: Isolated Zustand state store receiving high-frequency price updates over WebSockets without React UI re-render lag.
 - 🚢 **AIS Global Maritime Vessel & Oil Tanker Radar (`Ships BETA`)**: Satellite AIS tracking of crude oil supertankers (VLCCs), LNG carriers, and container ships across global chokepoints (Strait of Hormuz, Suez Canal, Panama Canal, Malacca Strait) with live tonnage, draft depth, and commodity volume tracking.
-- ✈️ **FLIGHT Corporate Jet Radar & M&A Signal Tracker (`Jets BETA`)**: ADS-B satellite radar tracking executive aircraft (`N1NVDA`, `N1AAPL`, `N1MSFT`), flight trajectory waypoints, OpenSky Network free public API integration, and corporate jet convergence signals.
+- ✈️ **FLIGHT Corporate Jet Radar & M&A Signal Tracker (`Jets BETA`)**: ADS-B satellite radar tracking executive aircraft (`N1NVIDIA`, `N1APPLE`, `N1MICROSOFT`), flight trajectory waypoints, OpenSky Network free public API integration, and corporate jet convergence signals.
 - 🗺️ **Interactive World Map Vector Radar**: Real-time continent landmass outlines (North America, South America, Europe, Africa, Asia, Australia) with interactive Zoom In (**`+`**), Zoom Out (**`-`**), and Reset controls (0.8x to 4.0x magnification scale).
 - 📄 **SEC Filing Intelligence & Hybrid RAG**: Indexing SEC EDGAR 10-K and 10-Q filings using `pgvector` + SQL BM25 Keyword Search. Every AI claim is grounded with clickable, line-level source citations.
 - 🤖 **Autonomous Multi-Agent Research Engine**: A deterministic state machine (`QUEUED` → `PLANNING` → `RESEARCHING` → `VERIFYING` → `SYNTHESIZING` → `COMPLETED`) running specialized agents:
@@ -53,7 +53,7 @@ Phase 2 aims to transform **Bloomberg Terminal AI** into a comprehensive, multi-
    - Visual treemap grid of S&P 500 sectors (Technology, Healthcare, Financials, Energy, Consumer Discretionary) color-coded by intraday % performance.
 
 6. **`IB` (Instant Bloomberg Chat Simulation)**:
-   - Terminal-style real-time trader messaging feed with live symbol auto-linking (`$NVDA`, `$AAPL`).
+   - Terminal-style real-time trader messaging feed with live symbol auto-linking (`$NVIDIA`, `$APPLE`).
 
 7. **`AIS` & `FLIGHT` Expansion**:
    - Real-time port congestion indexes (Rotterdam, Los Angeles, Shanghai).

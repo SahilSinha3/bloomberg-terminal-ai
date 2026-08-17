@@ -87,7 +87,7 @@ Raw Market Data + SEC Filings + Financial News
 ### 4. WebSocket Streaming Gateway
 - **Role**: Streams real-time financial ticks and live AI research progress directly to client browsers.
 - **Service Requirements**:
-  - Support `subscribe` / `unsubscribe` topics (`quotes:NVDA`, `agent_run:res_123`).
+  - Support `subscribe` / `unsubscribe` topics (`quotes:NVIDIA`, `agent_run:res_123`).
   - Event sequence numbering so clients can detect missed ticks and request instant refresh.
   - Heartbeat `PING` / `PONG` management and exponential backoff reconnection.
   - Intraday tick throttling to prevent browser UI freeze during volatile market spikes.
@@ -108,7 +108,7 @@ Raw Market Data + SEC Filings + Financial News
 ### 7. News & Sentiment Ingestion Service
 - **Role**: Collects breaking market headlines from financial RSS/News APIs.
 - **Service Requirements**:
-  - Entity extraction: Map articles to relevant stock symbols (`NVDA`, `AAPL`, `MSFT`).
+  - Entity extraction: Map articles to relevant stock symbols (`NVIDIA`, `APPLE`, `MICROSOFT`).
   - Assign automated sentiment tags (`BULLISH`, `BEARISH`, `NEUTRAL`).
 
 ### 8. Market Anomaly Detection Engine
@@ -183,7 +183,7 @@ How a 100-page SEC 10-Q document becomes an instant answer with citations:
 2. **Chunk & Tag**: The document is split into small 500-word paragraphs. Each paragraph gets tagged with its Page Number, Section Title, and Company Ticker.
 3. **Embed**: A vector model converts text into math vectors (numbers representing meaning).
 4. **Retrieve**: When a user asks a question, we convert the question into a vector, find the top 3 matching SEC paragraphs in `pgvector`, and send them to the LLM.
-5. **Cite**: The final answer includes clickable badges `[Source 1: NVDA Q2 10-Q Page 14]`. Clicking highlights the exact sentence in the SEC viewer!
+5. **Cite**: The final answer includes clickable badges `[Source 1: NVIDIA Q2 10-Q Page 14]`. Clicking highlights the exact sentence in the SEC viewer!
 
 ---
 

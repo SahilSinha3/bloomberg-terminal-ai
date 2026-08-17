@@ -2,8 +2,8 @@ from typing import Dict, List, Any
 
 MOCK_FILINGS: List[Dict[str, Any]] = [
     {
-        "id": "doc_nvda_q2_2026",
-        "symbol": "NVDA",
+        "id": "doc_NVIDIA_q2_2026",
+        "symbol": "NVIDIA",
         "type": "10-Q",
         "filingDate": "2026-08-01",
         "period": "Q2 FY2026",
@@ -12,14 +12,14 @@ MOCK_FILINGS: List[Dict[str, Any]] = [
         "summary": "Quarterly report detailing Data Center revenue growth of 154% YoY driven by Blackwell B200 architecture deployment, offset by supply chain constraints on CoWoS packaging.",
         "contentChunks": [
             {
-                "chunkId": "chunk_nvda_1",
+                "chunkId": "chunk_NVIDIA_1",
                 "section": "Item 2. Management Discussion & Analysis",
                 "page": 14,
                 "text": "Data Center revenue for the second quarter of fiscal 2026 was $26.3 billion, up 16% sequentially and up 154% from a year ago. Demand for our Blackwell GPU platform exceeded available supply, with gross margin contracting slightly to 75.1% due to component cost mix adjustments during initial production ramp.",
                 "highlightKeywords": ["Data Center", "Blackwell GPU", "gross margin", "75.1%"]
             },
             {
-                "chunkId": "chunk_nvda_2",
+                "chunkId": "chunk_NVIDIA_2",
                 "section": "Item 1A. Risk Factors",
                 "page": 28,
                 "text": "Our reliance on single-source semiconductor foundries, particularly TSMC for advanced 4N process node packaging (CoWoS), creates exposure to capacity bottlenecks. Any disruption in substrate availability could adversely affect shipment schedules for enterprise AI servers.",

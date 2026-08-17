@@ -28,7 +28,7 @@ tags_metadata = [
     },
     {
         "name": "FLIGHT Corporate Jet Tracking",
-        "description": "Real-time executive aircraft tracking data (N1NVDA, N1AAPL, N1MSFT) and M&A jet convergence signals.",
+        "description": "Real-time executive aircraft tracking data (N1NVIDIA, N1APPLE, N1MICROSOFT) and M&A jet convergence signals.",
     },
     {
         "name": "Macro Economic Indicators",
@@ -109,7 +109,7 @@ def health_check():
 async def websocket_stream_endpoint(websocket: WebSocket):
     await websocket.accept()
     try:
-        symbols = ["NVDA", "AAPL", "MSFT", "AMD", "TSLA", "BTC-USD", "SPY"]
+        symbols = ["NVIDIA", "APPLE", "MICROSOFT", "AMD", "TESLA", "BTC-USD", "SPY"]
         while True:
             await asyncio.sleep(2)
             chosen = random.choice(symbols)

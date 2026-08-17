@@ -3,26 +3,26 @@
 import React, { useState, useEffect } from 'react';
 import { useTerminalStore } from '../store/useTerminalStore';
 import { SecuritySymbol } from '../types/terminal';
-import { 
-  Terminal, 
-  Wifi, 
-  Clock, 
-  Sparkles, 
-  TrendingUp, 
-  Layers, 
-  FileText, 
+import {
+  Terminal,
+  Wifi,
+  Clock,
+  Sparkles,
+  TrendingUp,
+  Layers,
+  FileText,
   Newspaper,
   Anchor,
   Plane
 } from 'lucide-react';
 
 export default function Header() {
-  const { 
-    activeSymbol, 
-    quotes, 
-    activePanel, 
-    setActiveSymbol, 
-    setActivePanel, 
+  const {
+    activeSymbol,
+    quotes,
+    activePanel,
+    setActiveSymbol,
+    setActivePanel,
     setCommandPaletteOpen,
     isStreaming,
     toggleStreaming
@@ -41,7 +41,7 @@ export default function Header() {
     return () => clearInterval(interval);
   }, []);
 
-  const symbolsList: SecuritySymbol[] = ['NVDA', 'AAPL', 'MSFT', 'AMD', 'TSLA', 'BTC-USD', 'SPY'];
+  const symbolsList: SecuritySymbol[] = ['NVIDIA', 'APPLE', 'MICROSOFT', 'AMD', 'TESLA', 'BTC-USD', 'SPY'];
 
   const handleQuickSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,11 +88,10 @@ export default function Header() {
 
           <button
             onClick={toggleStreaming}
-            className={`flex items-center gap-1 text-[11px] px-2 py-0.5 rounded border transition-colors ${
-              isStreaming 
-                ? 'bg-[#00e5ff]/10 text-[#00e5ff] border-[#00e5ff]/40' 
-                : 'bg-gray-800 text-gray-400 border-gray-700'
-            }`}
+            className={`flex items-center gap-1 text-[11px] px-2 py-0.5 rounded border transition-colors ${isStreaming
+              ? 'bg-[#00e5ff]/10 text-[#00e5ff] border-[#00e5ff]/40'
+              : 'bg-gray-800 text-gray-400 border-gray-700'
+              }`}
             title="Toggle Real-Time Market Ticks"
           >
             <Wifi size={12} className={isStreaming ? 'animate-pulse' : ''} />
@@ -110,11 +109,10 @@ export default function Header() {
                 <button
                   key={sym}
                   onClick={() => setActiveSymbol(sym)}
-                  className={`px-2 py-0.5 text-xs rounded font-bold transition-all ${
-                    activeSymbol === sym 
-                      ? 'bg-[#ff9900] text-black shadow-md' 
-                      : 'text-gray-400 hover:text-white hover:bg-[#1f2430]'
-                  }`}
+                  className={`px-2 py-0.5 text-xs rounded font-bold transition-all ${activeSymbol === sym
+                    ? 'bg-[#ff9900] text-black shadow-md'
+                    : 'text-gray-400 hover:text-white hover:bg-[#1f2430]'
+                    }`}
                 >
                   {sym}
                   {q && (
@@ -134,11 +132,11 @@ export default function Header() {
                 type="text"
                 value={quickSearch}
                 onChange={(e) => setQuickSearch(e.target.value)}
-                placeholder="Type symbol (NVDA) or press ⌘K..."
+                placeholder="Type symbol (NVIDIA) or press ⌘K..."
                 className="w-full bg-[#13161c] border border-[#262a33] focus:border-[#ff9900] text-xs text-white pl-16 pr-8 py-1.5 rounded outline-none transition-all placeholder:text-gray-600 font-mono"
               />
-              <button 
-                type="button" 
+              <button
+                type="button"
                 onClick={() => setCommandPaletteOpen(true)}
                 className="absolute right-2 text-gray-500 hover:text-gray-300 text-xs"
               >
@@ -153,9 +151,8 @@ export default function Header() {
           <div className="flex items-center gap-1 bg-[#13161c] p-1 rounded border border-[#222733]">
             <button
               onClick={() => setActivePanel('CHART')}
-              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'CHART' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'CHART' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <TrendingUp size={13} />
               <span>Chart</span>
@@ -163,9 +160,8 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('FINANCIALS')}
-              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'FINANCIALS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'FINANCIALS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Layers size={13} />
               <span>Financials</span>
@@ -173,9 +169,8 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('FILINGS')}
-              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'FILINGS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'FILINGS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <FileText size={13} />
               <span>SEC RAG</span>
@@ -184,9 +179,8 @@ export default function Header() {
             {/* Phase 2 Beta Units */}
             <button
               onClick={() => setActivePanel('VESSELS')}
-              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'VESSELS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'VESSELS' ? 'bg-[#1f2430] text-[#00e5ff] font-bold border border-[#00e5ff]/30' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Anchor size={13} />
               <span>Ships</span>
@@ -195,9 +189,8 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('FLIGHTS')}
-              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'FLIGHTS' ? 'bg-[#1f2430] text-[#ff9900] font-bold border border-[#ff9900]/30' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'FLIGHTS' ? 'bg-[#1f2430] text-[#ff9900] font-bold border border-[#ff9900]/30' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Plane size={13} />
               <span>Jets</span>
@@ -206,9 +199,8 @@ export default function Header() {
 
             <button
               onClick={() => setActivePanel('RESEARCH')}
-              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${
-                activePanel === 'RESEARCH' ? 'bg-[#ff9900]/20 text-[#ff9900] font-bold border border-[#ff9900]/50' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`flex items-center gap-1 px-2 py-1 text-xs rounded transition-colors ${activePanel === 'RESEARCH' ? 'bg-[#ff9900]/20 text-[#ff9900] font-bold border border-[#ff9900]/50' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <Sparkles size={13} className="text-[#ff9900]" />
               <span>AI Agents</span>

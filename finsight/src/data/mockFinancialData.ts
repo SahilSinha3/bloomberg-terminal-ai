@@ -1,8 +1,8 @@
 import { SecurityQuote, OHLCVBar, FinancialMetric, SECFiling, NewsArticle, MarketAnomaly, ResearchReport } from '../types/terminal';
 
 export const INITIAL_QUOTES: Record<string, SecurityQuote> = {
-  NVDA: {
-    symbol: 'NVDA',
+  NVIDIA: {
+    symbol: 'NVIDIA',
     name: 'NVIDIA Corporation',
     price: 172.31,
     change: -4.21,
@@ -15,8 +15,8 @@ export const INITIAL_QUOTES: Record<string, SecurityQuote> = {
     sector: 'Semiconductors',
     lastUpdated: new Date().toISOString()
   },
-  AAPL: {
-    symbol: 'AAPL',
+  APPLE: {
+    symbol: 'APPLE',
     name: 'Apple Inc.',
     price: 214.20,
     change: 1.85,
@@ -29,8 +29,8 @@ export const INITIAL_QUOTES: Record<string, SecurityQuote> = {
     sector: 'Consumer Electronics',
     lastUpdated: new Date().toISOString()
   },
-  MSFT: {
-    symbol: 'MSFT',
+  MICROSOFT: {
+    symbol: 'MICROSOFT',
     name: 'Microsoft Corporation',
     price: 521.11,
     change: 6.42,
@@ -57,8 +57,8 @@ export const INITIAL_QUOTES: Record<string, SecurityQuote> = {
     sector: 'Semiconductors',
     lastUpdated: new Date().toISOString()
   },
-  TSLA: {
-    symbol: 'TSLA',
+  TESLA: {
+    symbol: 'TESLA',
     name: 'Tesla, Inc.',
     price: 248.90,
     change: -7.10,
@@ -106,23 +106,23 @@ export function generateBarsForSymbol(symbol: string): OHLCVBar[] {
   const basePrice = INITIAL_QUOTES[symbol]?.price || 150;
   const bars: OHLCVBar[] = [];
   const now = new Date();
-  
+
   let currentPrice = basePrice * 0.85; // Start 15% lower 30 days ago
-  
+
   for (let i = 30; i >= 0; i--) {
     const d = new Date(now);
     d.setDate(d.getDate() - i);
     const dateStr = d.toISOString().split('T')[0];
-    
+
     const randomChangePercent = (Math.random() - 0.48) * 0.04;
     const open = Math.round(currentPrice * 100) / 100;
     const close = Math.round((open * (1 + randomChangePercent)) * 100) / 100;
     const high = Math.round(Math.max(open, close) * (1 + Math.random() * 0.015) * 100) / 100;
     const low = Math.round(Math.min(open, close) * (1 - Math.random() * 0.015) * 100) / 100;
     const volume = Math.floor(25000000 + Math.random() * 45000000);
-    
+
     currentPrice = close;
-    
+
     bars.push({
       timestamp: dateStr,
       open,
@@ -135,12 +135,12 @@ export function generateBarsForSymbol(symbol: string): OHLCVBar[] {
       rsi: Math.round(45 + Math.random() * 30)
     });
   }
-  
+
   return bars;
 }
 
 export const FINANCIAL_STATEMENTS: Record<string, FinancialMetric[]> = {
-  NVDA: [
+  NVIDIA: [
     {
       period: 'Q2 2026',
       revenue: 30040,
@@ -206,8 +206,8 @@ export const FINANCIAL_STATEMENTS: Record<string, FinancialMetric[]> = {
 
 export const MOCK_SEC_FILINGS: SECFiling[] = [
   {
-    id: 'doc_nvda_q2_2026',
-    symbol: 'NVDA',
+    id: 'doc_NVIDIA_q2_2026',
+    symbol: 'NVIDIA',
     type: '10-Q',
     filingDate: '2026-08-01',
     period: 'Q2 FY2026',
@@ -216,14 +216,14 @@ export const MOCK_SEC_FILINGS: SECFiling[] = [
     summary: 'Quarterly report detailing Data Center revenue growth of 154% YoY driven by Blackwell B200 architecture deployment, offset by supply chain constraints on CoWoS packaging.',
     contentChunks: [
       {
-        chunkId: 'chunk_nvda_1',
+        chunkId: 'chunk_NVIDIA_1',
         section: 'Item 2. Management Discussion & Analysis',
         page: 14,
         text: 'Data Center revenue for the second quarter of fiscal 2026 was $26.3 billion, up 16% sequentially and up 154% from a year ago. Demand for our Blackwell GPU platform exceeded available supply, with gross margin contracting slightly to 75.1% due to component cost mix adjustments during initial production ramp.',
         highlightKeywords: ['Data Center', 'Blackwell GPU', 'gross margin', '75.1%']
       },
       {
-        chunkId: 'chunk_nvda_2',
+        chunkId: 'chunk_NVIDIA_2',
         section: 'Item 1A. Risk Factors',
         page: 28,
         text: 'Our reliance on single-source semiconductor foundries, particularly TSMC for advanced 4N process node packaging (CoWoS), creates exposure to capacity bottlenecks. Any disruption in substrate availability could adversely affect shipment schedules for enterprise AI servers.',
@@ -232,8 +232,8 @@ export const MOCK_SEC_FILINGS: SECFiling[] = [
     ]
   },
   {
-    id: 'doc_nvda_8k_2026',
-    symbol: 'NVDA',
+    id: 'doc_NVIDIA_8k_2026',
+    symbol: 'NVIDIA',
     type: '8-K',
     filingDate: '2026-08-14',
     period: 'Current Event',
@@ -242,7 +242,7 @@ export const MOCK_SEC_FILINGS: SECFiling[] = [
     summary: 'NVIDIA announces expanded supply agreement with SK Hynix and Micron Technology for High Bandwidth Memory (HBM3e / HBM4) allocation.',
     contentChunks: [
       {
-        chunkId: 'chunk_nvda_3',
+        chunkId: 'chunk_NVIDIA_3',
         section: 'Item 8.01 Other Events',
         page: 2,
         text: 'On August 14, 2026, the Registrant entered into long-term wafer supply contracts guaranteeing HBM3e 12-hi stack capacity through 2027 to satisfy hyperscaler sovereign AI cluster deployments.',
@@ -259,9 +259,9 @@ export const MOCK_NEWS: NewsArticle[] = [
     source: 'Bloomberg Intelligence',
     publishedAt: '12 mins ago',
     summary: 'Analyst reports highlight tight substrate packaging capacity for AI accelerators, though demand remains at record highs across cloud providers.',
-    url: 'https://bloomberg.com/news/nvda-supply-chain-check',
+    url: 'https://bloomberg.com/news/NVIDIA-supply-chain-check',
     sentiment: 'BEARISH',
-    relatedSymbols: ['NVDA', 'AMD', 'TSLA']
+    relatedSymbols: ['NVIDIA', 'AMD', 'TESLA']
   },
   {
     id: 'news_2',
@@ -271,7 +271,7 @@ export const MOCK_NEWS: NewsArticle[] = [
     summary: 'Microsoft announces $12B capital expenditure expansion for enterprise AI models, reinforcing infrastructure commitment.',
     url: 'https://ft.com/tech/microsoft-azure-ai-capex',
     sentiment: 'BULLISH',
-    relatedSymbols: ['MSFT', 'NVDA']
+    relatedSymbols: ['MICROSOFT', 'NVIDIA']
   },
   {
     id: 'news_3',
@@ -281,7 +281,7 @@ export const MOCK_NEWS: NewsArticle[] = [
     summary: 'Traders increase put options protection across SOXX ETF following rapid rally over past two quarters.',
     url: 'https://reuters.com/markets/options-soxx-hedging',
     sentiment: 'NEUTRAL',
-    relatedSymbols: ['NVDA', 'AMD', 'SPY']
+    relatedSymbols: ['NVIDIA', 'AMD', 'SPY']
   }
 ];
 
@@ -289,7 +289,7 @@ export const MOCK_ANOMALIES: MarketAnomaly[] = [
   {
     id: 'anom_1',
     timestamp: '14:22:10 UTC',
-    symbol: 'NVDA',
+    symbol: 'NVIDIA',
     type: 'VOLUME_SPIKE',
     severity: 'HIGH',
     description: 'Abnormal block trade volume detected (2.8x 30-day average ticker velocity)',
@@ -315,16 +315,16 @@ export const MOCK_ANOMALIES: MarketAnomaly[] = [
 ];
 
 export const MOCK_PREBUILT_RESEARCH_REPORT: ResearchReport = {
-  id: 'res_nvda_move_2026',
-  query: 'Why did NVDA move -2.38% today despite strong AI demand?',
-  symbol: 'NVDA',
+  id: 'res_NVIDIA_move_2026',
+  query: 'Why did NVIDIA move -2.38% today despite strong AI demand?',
+  symbol: 'NVIDIA',
   createdAt: new Date().toISOString(),
   status: 'COMPLETED',
-  summary: 'NVIDIA (NVDA) declined 2.38% to $172.31 today due to a combination of supply-chain capacity checks regarding CoWoS packaging substrate bottlenecks noted in recent SEC filings, options market hedging across the semiconductor sector (SOXX), and minor gross margin mix adjustments reported in Q2 Form 10-Q. Core fundamental demand for Blackwell GPUs remains strong.',
+  summary: 'NVIDIA (NVIDIA) declined 2.38% to $172.31 today due to a combination of supply-chain capacity checks regarding CoWoS packaging substrate bottlenecks noted in recent SEC filings, options market hedging across the semiconductor sector (SOXX), and minor gross margin mix adjustments reported in Q2 Form 10-Q. Core fundamental demand for Blackwell GPUs remains strong.',
   claims: [
     {
       id: 'c1',
-      text: 'NVDA Q2 Form 10-Q highlights Data Center revenue reaching $26.3B (+154% YoY), but noted a slight gross margin compression to 75.1% during initial Blackwell product ramp.',
+      text: 'NVIDIA Q2 Form 10-Q highlights Data Center revenue reaching $26.3B (+154% YoY), but noted a slight gross margin compression to 75.1% during initial Blackwell product ramp.',
       claimType: 'FACT',
       confidence: 0.98,
       citationIds: ['cit_1']
@@ -366,7 +366,7 @@ export const MOCK_PREBUILT_RESEARCH_REPORT: ResearchReport = {
     {
       id: 'cit_3',
       sourceType: 'NEWS_ARTICLE',
-      title: 'Bloomberg Intelligence: NVDA Supply Chain Assessment',
+      title: 'Bloomberg Intelligence: NVIDIA Supply Chain Assessment',
       excerpt: 'Analyst reports highlight tight substrate packaging capacity for AI accelerators, though demand remains at record highs across cloud providers.'
     }
   ],
@@ -385,7 +385,7 @@ export const MOCK_PREBUILT_RESEARCH_REPORT: ResearchReport = {
       status: 'COMPLETED',
       toolCall: {
         toolName: 'get_historical_prices',
-        params: { symbol: 'NVDA', interval: '1d', range: '30d' },
+        params: { symbol: 'NVIDIA', interval: '1d', range: '30d' },
         resultCount: 30
       },
       outputSummary: 'Detected 2.8x abnormal volume spike (58.4M shares) with intraday high of $177.50 reversing to low of $169.80.'
@@ -397,7 +397,7 @@ export const MOCK_PREBUILT_RESEARCH_REPORT: ResearchReport = {
       status: 'COMPLETED',
       toolCall: {
         toolName: 'search_filings',
-        params: { symbol: 'NVDA', query: 'gross margin CoWoS substrate capacity' },
+        params: { symbol: 'NVIDIA', query: 'gross margin CoWoS substrate capacity' },
         resultCount: 2
       },
       outputSummary: 'Retrieved 2 cited paragraphs from Q2 10-Q MD&A section confirming 75.1% margin and TSMC CoWoS packaging bottlenecks.'

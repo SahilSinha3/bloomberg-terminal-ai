@@ -3,16 +3,16 @@
 import React, { useState, useMemo } from 'react';
 import { useTerminalStore } from '../store/useTerminalStore';
 import { generateBarsForSymbol } from '../data/mockFinancialData';
-import { 
-  ResponsiveContainer, 
-  ComposedChart, 
-  Area, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  Tooltip, 
-  CartesianGrid, 
-  Line 
+import {
+  ResponsiveContainer,
+  ComposedChart,
+  Area,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Line
 } from 'recharts';
 import { TrendingUp, Activity, BarChart2, Eye, Sparkles } from 'lucide-react';
 
@@ -22,7 +22,7 @@ export default function ChartPanel() {
   const [showMA, setShowMA] = useState(true);
   const [showVolume, setShowVolume] = useState(true);
 
-  const quote = quotes[activeSymbol] || quotes['NVDA'];
+  const quote = quotes[activeSymbol] || quotes['NVIDIA'];
   const isPos = quote ? quote.change >= 0 : true;
 
   const data = useMemo(() => {
@@ -122,13 +122,13 @@ export default function ChartPanel() {
             {showVolume && <Bar dataKey="volume" yAxisId="vol" fill="#374151" opacity={0.4} />}
 
             {chartType === 'AREA' ? (
-              <Area 
-                type="monotone" 
-                dataKey="close" 
-                stroke={isPos ? '#00e676' : '#ff5252'} 
-                strokeWidth={2} 
-                fillOpacity={1} 
-                fill="url(#priceGradient)" 
+              <Area
+                type="monotone"
+                dataKey="close"
+                stroke={isPos ? '#00e676' : '#ff5252'}
+                strokeWidth={2}
+                fillOpacity={1}
+                fill="url(#priceGradient)"
               />
             ) : (
               <Line type="monotone" dataKey="close" stroke={isPos ? '#00e676' : '#ff5252'} strokeWidth={2} dot={false} />

@@ -1,4 +1,4 @@
-export type SecuritySymbol = 'NVDA' | 'AAPL' | 'MSFT' | 'AMD' | 'TSLA' | 'BTC-USD' | 'SPY';
+export type SecuritySymbol = 'NVIDIA' | 'APPLE' | 'MICROSOFT' | 'AMD' | 'TESLA' | 'BTC-USD' | 'SPY';
 
 export interface SecurityQuote {
   symbol: SecuritySymbol;
@@ -86,13 +86,13 @@ export interface MarketAnomaly {
   };
 }
 
-export type AgentRole = 
-  | 'PLANNER' 
-  | 'MARKET_AGENT' 
-  | 'NEWS_AGENT' 
-  | 'FILING_AGENT' 
-  | 'PEER_AGENT' 
-  | 'CRITIC_AGENT' 
+export type AgentRole =
+  | 'PLANNER'
+  | 'MARKET_AGENT'
+  | 'NEWS_AGENT'
+  | 'FILING_AGENT'
+  | 'PEER_AGENT'
+  | 'CRITIC_AGENT'
   | 'SYNTHESIS_AGENT';
 
 export type AgentStatus = 'PENDING' | 'RUNNING' | 'COMPLETED' | 'FAILED';

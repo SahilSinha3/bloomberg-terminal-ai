@@ -6,13 +6,13 @@ import { SecuritySymbol } from '../types/terminal';
 import { Search, Sparkles, TrendingUp, FileText, Layers, Newspaper, X, Terminal } from 'lucide-react';
 
 export default function CommandPalette() {
-  const { 
-    commandPaletteOpen, 
-    setCommandPaletteOpen, 
-    setActiveSymbol, 
-    setActivePanel, 
+  const {
+    commandPaletteOpen,
+    setCommandPaletteOpen,
+    setActiveSymbol,
+    setActivePanel,
     startNewResearch,
-    quotes 
+    quotes
   } = useTerminalStore();
 
   const [query, setQuery] = useState('');
@@ -33,10 +33,10 @@ export default function CommandPalette() {
 
   if (!commandPaletteOpen) return null;
 
-  const availableSymbols: SecuritySymbol[] = ['NVDA', 'AAPL', 'MSFT', 'AMD', 'TSLA', 'BTC-USD', 'SPY'];
+  const availableSymbols: SecuritySymbol[] = ['NVIDIA', 'APPLE', 'MICROSOFT', 'AMD', 'TESLA', 'BTC-USD', 'SPY'];
 
-  const filteredSymbols = availableSymbols.filter(sym => 
-    sym.toLowerCase().includes(query.toLowerCase()) || 
+  const filteredSymbols = availableSymbols.filter(sym =>
+    sym.toLowerCase().includes(query.toLowerCase()) ||
     (quotes[sym]?.name || '').toLowerCase().includes(query.toLowerCase())
   );
 
@@ -57,7 +57,7 @@ export default function CommandPalette() {
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-20 p-4 font-mono">
       <div className="bg-[#111318] border border-[#ff9900]/50 rounded-lg shadow-[0_0_40px_rgba(255,153,0,0.2)] w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-150">
-        
+
         {/* Top Command Input Bar */}
         <div className="p-3 border-b border-[#262a33] flex items-center gap-2 bg-[#171a21]">
           <Terminal className="text-[#ff9900]" size={18} />
@@ -65,7 +65,7 @@ export default function CommandPalette() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Type ticker symbol, command (e.g. NVDA FILINGS), or ask AI research prompt..."
+            placeholder="Type ticker symbol, command (e.g. NVIDIA FILINGS), or ask AI research prompt..."
             className="w-full bg-transparent text-white text-sm outline-none placeholder:text-gray-500 font-mono"
             autoFocus
             onKeyDown={(e) => {
@@ -79,7 +79,7 @@ export default function CommandPalette() {
               }
             }}
           />
-          <button 
+          <button
             onClick={() => setCommandPaletteOpen(false)}
             className="text-gray-400 hover:text-white p-1 rounded"
           >
@@ -89,7 +89,7 @@ export default function CommandPalette() {
 
         {/* Quick Suggestions & Commands */}
         <div className="p-3 max-h-[60vh] overflow-y-auto space-y-4 text-xs">
-          
+
           {/* Ask AI Option */}
           {query.trim().length > 2 && (
             <div>
@@ -144,7 +144,7 @@ export default function CommandPalette() {
           <div>
             <div className="text-gray-500 text-[10px] font-bold tracking-wider uppercase mb-1.5">Keyboard Navigation Shortcuts</div>
             <div className="grid grid-cols-2 gap-2 text-gray-300">
-              <button 
+              <button
                 onClick={() => { setActivePanel('CHART'); setCommandPaletteOpen(false); }}
                 className="p-2 rounded bg-[#161922] hover:bg-[#202533] border border-[#222733] flex items-center gap-2 text-left"
               >
@@ -152,7 +152,7 @@ export default function CommandPalette() {
                 <span><strong className="text-white">G C</strong> — Price Chart & Technicals</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => { setActivePanel('FINANCIALS'); setCommandPaletteOpen(false); }}
                 className="p-2 rounded bg-[#161922] hover:bg-[#202533] border border-[#222733] flex items-center gap-2 text-left"
               >
@@ -160,7 +160,7 @@ export default function CommandPalette() {
                 <span><strong className="text-white">G F</strong> — Financial Analytics</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => { setActivePanel('FILINGS'); setCommandPaletteOpen(false); }}
                 className="p-2 rounded bg-[#161922] hover:bg-[#202533] border border-[#222733] flex items-center gap-2 text-left"
               >
@@ -168,7 +168,7 @@ export default function CommandPalette() {
                 <span><strong className="text-white">G R</strong> — SEC RAG Filings</span>
               </button>
 
-              <button 
+              <button
                 onClick={() => { setActivePanel('RESEARCH'); setCommandPaletteOpen(false); }}
                 className="p-2 rounded bg-[#161922] hover:bg-[#202533] border border-[#222733] flex items-center gap-2 text-left"
               >

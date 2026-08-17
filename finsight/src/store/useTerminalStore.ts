@@ -8,16 +8,16 @@ interface TerminalState {
   quotes: Record<string, SecurityQuote>;
   activePanel: TerminalPanelId;
   commandPaletteOpen: boolean;
-  
+
   // Real-time streaming state
   isStreaming: boolean;
-  
+
   // AI Research State
   activeResearchReport: ResearchReport | null;
   selectedCitation: CitationReference | null;
   isCitationDrawerOpen: boolean;
   isResearchRunning: boolean;
-  
+
   // SEC Filings
   filings: SECFiling[];
   selectedFiling: SECFiling | null;
@@ -32,30 +32,30 @@ interface TerminalState {
   setCommandPaletteOpen: (open: boolean) => void;
   toggleStreaming: () => void;
   updateQuotePrice: (symbol: SecuritySymbol, newPrice: number) => void;
-  
+
   // AI Research Actions
   startNewResearch: (query: string) => void;
   openCitation: (citation: CitationReference) => void;
   closeCitationDrawer: () => void;
-  
+
   // Filings Actions
   selectFiling: (filing: SECFiling) => void;
   highlightChunk: (chunkId: string) => void;
 }
 
 export const useTerminalStore = create<TerminalState>((set, get) => ({
-  activeSymbol: 'NVDA',
+  activeSymbol: 'NVIDIA',
   quotes: INITIAL_QUOTES,
   activePanel: 'CHART',
   commandPaletteOpen: false,
-  
+
   isStreaming: true,
-  
+
   activeResearchReport: MOCK_PREBUILT_RESEARCH_REPORT,
   selectedCitation: null,
   isCitationDrawerOpen: false,
   isResearchRunning: false,
-  
+
   filings: MOCK_SEC_FILINGS,
   selectedFiling: MOCK_SEC_FILINGS[0],
   activeChunkId: null,
@@ -65,9 +65,9 @@ export const useTerminalStore = create<TerminalState>((set, get) => ({
   setActiveSymbol: (symbol: SecuritySymbol) => set({ activeSymbol: symbol }),
   setActivePanel: (panel: TerminalPanelId) => set({ activePanel: panel }),
   setCommandPaletteOpen: (open: boolean) => set({ commandPaletteOpen: open }),
-  
+
   toggleStreaming: () => set((state) => ({ isStreaming: !state.isStreaming })),
-  
+
   updateQuotePrice: (symbol: SecuritySymbol, newPrice: number) => {
     set((state) => {
       const currentQuote = state.quotes[symbol];
@@ -75,7 +75,7 @@ export const useTerminalStore = create<TerminalState>((set, get) => ({
 
       const diff = newPrice - currentQuote.price;
       const changePercent = (diff / currentQuote.price) * 100;
-      
+
       return {
         quotes: {
           ...state.quotes,
@@ -93,7 +93,7 @@ export const useTerminalStore = create<TerminalState>((set, get) => ({
 
   startNewResearch: (query: string) => {
     const symbol = get().activeSymbol;
-    
+
     set({
       isResearchRunning: true,
       activePanel: 'RESEARCH',

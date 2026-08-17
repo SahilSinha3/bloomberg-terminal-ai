@@ -1,7 +1,7 @@
 from typing import Dict, List, Any
 
 FINANCIAL_DATA: Dict[str, List[Dict[str, Any]]] = {
-    "NVDA": [
+    "NVIDIA": [
         {
             "period": "Q2 2026", "revenue": 30040, "grossProfit": 22580, "operatingIncome": 18640,
             "netIncome": 16590, "eps": 0.68, "freeCashFlow": 13480, "cashAndEquivalents": 34800,

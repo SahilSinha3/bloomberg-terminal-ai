@@ -8,7 +8,7 @@ import { TrendingUp, TrendingDown, Volume2, ShieldAlert } from 'lucide-react';
 export default function WatchlistPanel() {
   const { activeSymbol, quotes, setActiveSymbol } = useTerminalStore();
 
-  const symbols: SecuritySymbol[] = ['NVDA', 'AAPL', 'MSFT', 'AMD', 'TSLA', 'BTC-USD', 'SPY'];
+  const symbols: SecuritySymbol[] = ['NVIDIA', 'APPLE', 'MICROSOFT', 'AMD', 'TESLA', 'BTC-USD', 'SPY'];
 
   return (
     <div className="bg-[#111318] border border-[#262a33] rounded-lg p-3 font-mono flex flex-col h-full">
@@ -31,11 +31,10 @@ export default function WatchlistPanel() {
             <div
               key={sym}
               onClick={() => setActiveSymbol(sym)}
-              className={`p-2 rounded border cursor-pointer transition-all ${
-                isSelected 
-                  ? 'bg-[#1b202c] border-[#ff9900]/60 shadow-[0_0_12px_rgba(255,153,0,0.15)]' 
-                  : 'bg-[#151821] border-[#222733] hover:border-gray-700 hover:bg-[#1a1e29]'
-              }`}
+              className={`p-2 rounded border cursor-pointer transition-all ${isSelected
+                ? 'bg-[#1b202c] border-[#ff9900]/60 shadow-[0_0_12px_rgba(255,153,0,0.15)]'
+                : 'bg-[#151821] border-[#222733] hover:border-gray-700 hover:bg-[#1a1e29]'
+                }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
